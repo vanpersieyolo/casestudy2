@@ -1,6 +1,7 @@
 package QuanLiNhanVien;
 import ChoiceFolder.Showlist;
 
+import javax.sound.midi.MidiFileFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,6 +13,12 @@ public class ShowfunctionEmployee {
     }
 
     public void list() {
+        int countID = 0;
+        for (Employee e : member) {
+            if (e.getId() > countID){
+                countID = e.getId();
+            }
+        }
         do {
 
             System.out.println("1. Thêm 1 nhân viên");
@@ -31,8 +38,7 @@ public class ShowfunctionEmployee {
                     String email = scanner.nextLine();
                     System.out.println("nhập vào tuổi: ");
                     int age = Integer.parseInt(scanner.nextLine());
-                    System.out.println("nhập vào ID: ");
-                    int id = Integer.parseInt(scanner.nextLine());
+                    int id = ++countID;
                     Employee employee = new Employee(name, age, email, id);
                     member.add(employee);
                     break;
@@ -43,11 +49,10 @@ public class ShowfunctionEmployee {
                         if (e.getId() == idRemove){
                             member.remove(e);
                             System.out.println("Đã xóa nhân viên khỏi danh sách");
-                            break;
-                        }else {
-                            System.out.println("không có nhân viên có ID vừa nhập !");
+                            return;
                         }
                     }
+                    System.out.println("không có nhân viên có ID vừa nhập !");
                     break;
                 case 3:
                     System.out.println("nhập vào ID nhân viên cần tìm: ");
@@ -56,10 +61,10 @@ public class ShowfunctionEmployee {
                         if (e.getId() == idFind){
                             System.out.println("Nhân viên cần tìm là: ");
                             System.out.println(e.toString());
-                        }else{
-                            System.out.println("không có nhân viên có ID vừa nhập !");
+                            return;
                         }
                     }
+                    System.out.println("không có nhân viên có ID vừa nhập !");
                     break;
                 case 4:
                     for (Employee e : member) {
