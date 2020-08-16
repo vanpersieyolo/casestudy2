@@ -1,14 +1,18 @@
 package ChoiceFolder;
 import Login.Login;
+import QuanLiNhanVien.Employee;
 import QuanLiNhanVien.ShowfunctionEmployee;
+import RecodeFile.RecordandWrite;
+
 import java.util.ArrayList;
 
 public class DisplayProgram {
     public static void main(String[] args) {
-        ArrayList<ShowfunctionEmployee> arrE= new ArrayList<>();
+        ArrayList<Employee> member = new ArrayList<>();
         Login login = new Login();
         login.showLogin();
         int count = 3;
+        member = RecordandWrite.read("case2.txt");
         while (count > 0 ){
             if (login.checkLogin() == false){
                 System.out.println("bạn đã nhập sai. bạn còn "+count+" lần đăng nhập");
@@ -19,10 +23,13 @@ public class DisplayProgram {
                 break;
             }
         }
-
         if (login.checkLogin() == true){
-            Showlist.showlist();
-            Showlist.choiceList();
+            boolean check = true;
+            do{
+                Showlist.showlist();
+                check = Showlist.choiceList(member);
+            } while (check);
+
         }
     }
 }

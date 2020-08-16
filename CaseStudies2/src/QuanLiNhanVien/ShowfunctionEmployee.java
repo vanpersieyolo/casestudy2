@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ShowfunctionEmployee {
-    ArrayList<Employee> member = new ArrayList<>();
+    ArrayList<Employee> member;
 
-    public ShowfunctionEmployee() {
+    public ShowfunctionEmployee(ArrayList<Employee> member) {
+        this.member = member;
     }
 
     public void list() {
@@ -18,20 +19,20 @@ public class ShowfunctionEmployee {
             System.out.println("3. Tìm 1 nhân viên theo ID");
             System.out.println("4. In ra tất cả nhân viên");
             System.out.println("5. Sửa thông tin nhân viên ");
+            System.out.println("0. Exit ");
             System.out.println("nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
-            int choiceE = scanner.nextInt();
+            int choiceE = Integer.parseInt(scanner.nextLine());
             switch (choiceE) {
                 case 1:
                     System.out.println("nhập vào tên nhân viên:");
-                    String name = scanner.next();
+                    String name = scanner.nextLine();
                     System.out.println("nhập vào email:");
-                    String email = scanner.next();
+                    String email = scanner.nextLine();
                     System.out.println("nhập vào tuổi: ");
-                    int age = Integer.parseInt(scanner.next());
+                    int age = Integer.parseInt(scanner.nextLine());
                     System.out.println("nhập vào ID: ");
-                    int id = Integer.parseInt(scanner.next());
-
+                    int id = Integer.parseInt(scanner.nextLine());
                     Employee employee = new Employee(name, age, email, id);
                     member.add(employee);
                     break;
@@ -40,12 +41,13 @@ public class ShowfunctionEmployee {
                     int idRemove = Integer.parseInt(scanner.next());
                     for (Employee e: member) {
                         if (e.getId() == idRemove){
-                            Employee employee1 = new Employee();
-                            member.add(employee1);
                             member.remove(e);
+                            System.out.println("Đã xóa nhân viên khỏi danh sách");
+                            break;
+                        }else {
+                            System.out.println("không có nhân viên có ID vừa nhập !");
                         }
                     }
-                    System.out.println("Đã xóa nhân viên khỏi danh sách");
                     break;
                 case 3:
                     System.out.println("nhập vào ID nhân viên cần tìm: ");
@@ -54,6 +56,8 @@ public class ShowfunctionEmployee {
                         if (e.getId() == idFind){
                             System.out.println("Nhân viên cần tìm là: ");
                             System.out.println(e.toString());
+                        }else{
+                            System.out.println("không có nhân viên có ID vừa nhập !");
                         }
                     }
                     break;
@@ -78,7 +82,12 @@ public class ShowfunctionEmployee {
                             e.setEmail(emailNew);
                             System.out.println(e.toString());
                         }
+                        else {
+                            System.out.println("không có nhân viên có ID vừa nhập !");
+                        }
                     }
+                case 0:
+                    return;
             }
         }while (true);
     }
