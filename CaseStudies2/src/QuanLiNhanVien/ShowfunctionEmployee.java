@@ -14,13 +14,14 @@ public class ShowfunctionEmployee {
 
     public void list() {
         int countID = 0;
+
         for (Employee e : member) {
+
             if (e.getId() > countID){
                 countID = e.getId();
             }
         }
         do {
-
             System.out.println("1. Thêm 1 nhân viên");
             System.out.println("2. Xóa 1 nhân viên");
             System.out.println("3. Tìm 1 nhân viên theo ID");

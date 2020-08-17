@@ -23,6 +23,7 @@ public class ShowFunctionTools {
             System.out.println("2. Kiểm tra số dụng cụ qua ID người quản lí dụng cụ ");
             System.out.println("3. Xóa 1 dụng cụ ");
             System.out.println("4. In ra toàn bộ dụng cụ ");
+            System.out.println("5. Thay đổi người quản lí dụng cụ ( những dụng cụ của nhân viên đã nghỉ việc)");
             System.out.println("0. Exit");
             System.out.println("nhập lựa chọn");
             Scanner scanner = new Scanner(System.in);
@@ -73,20 +74,50 @@ public class ShowFunctionTools {
                     }
                     break;
                 case 4:
-                    for (Tool t: tools) {
-                        System.out.println(t);
                         for (Employee e: member) {
-                           if (t.getIDManagement() == e.getId()){
-                               System.out.println("ngươi quản lí : "+ e.getName());
-                           }
+                            int countTools = 0;
+                            for (Tool t:tools ) {
+                                if (t.getIDManagement() == e.getId()){
+                                    ++countTools;
+                                }
+                            }
+                            if (countTools > 0 ){
+                                System.out.println(e.getName());
+                                for (Tool t:tools ) {
+                                    if (t.getIDManagement() == e.getId()){
+                                        System.out.println(t);
+                                    }
+                                }
+                            }
+                        }
+                    for (Tool t: tools) {
+                        boolean check = false ;
+                        for (Employee a: member) {
+                            if (t.getIDManagement() == a.getId()){
+                                check = true;
+                            }
+                        }
+                        if (!check){
+                            System.out.println("dụng cụ chưa đc quản lí "+t);
                         }
                     }
-
                     break;
+                case 5:
+                    for (Tool t: tools) {
+                        boolean check1 = false;
+                        for (Employee e: member) {
+                            if (t.getIDManagement() == e.getId()){
+                                check1 = true;
+                            }
+                        }
+                        if (!check1){
+                            t.setIDManagement((int) (Math.random()*countIDTool));
+                            System.out.println(t);
+                        }
+                    }
                 case 0:
                     return;
             }
-
         }while (true);
 
     }
