@@ -87,11 +87,11 @@ public class ShowfunctionEmployee {
                             String emailNew = scanner.next();
                             e.setEmail(emailNew);
                             System.out.println(e.toString());
-                        }
-                        else {
-                            System.out.println("không có nhân viên có ID vừa nhập !");
+                            return;
                         }
                     }
+                    System.out.println("ID nhập vào không trùng khớp");
+                    break;
                 case 0:
                     return;
             }

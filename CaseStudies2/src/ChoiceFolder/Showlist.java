@@ -4,6 +4,7 @@ import QuanLiDungCu.ShowFunctionTools;
 import QuanLiDungCu.Tool;
 import QuanLiNhanVien.Employee;
 import QuanLiNhanVien.ShowfunctionEmployee;
+import RecodeFile.RecordAndWriteTools;
 import RecodeFile.RecordandWrite;
 import RecodeFile.RecordandWrite;
 
@@ -34,6 +35,7 @@ public class  Showlist {
             case 0:
                 System.out.println("đã đăng xuất");
                 RecordandWrite.write("case2.txt",member);
+                RecordAndWriteTools.record("case2Tools",tools);
                 return false;
         }
         return true;

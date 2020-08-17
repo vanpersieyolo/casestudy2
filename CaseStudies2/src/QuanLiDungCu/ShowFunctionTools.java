@@ -1,7 +1,9 @@
 package QuanLiDungCu;
 
 import QuanLiNhanVien.Employee;
+import com.sun.tools.javac.Main;
 
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,17 +15,21 @@ public class ShowFunctionTools {
         for (Employee e: member) {
             countMember++;
         }
-        int countIDTool = 1;
+        int countIDTool = 0;
         for (Tool t: tools) {
-            countIDTool++;
+            if (t.getIdTool() > countIDTool){
+                countIDTool = t.getIdTool();
+            }
         }
 
+        System.out.println(countIDTool);
         do {
             System.out.println("1. Thêm 1 dụng cụ mới ");
             System.out.println("2. Kiểm tra số dụng cụ qua ID người quản lí dụng cụ ");
             System.out.println("3. Xóa 1 dụng cụ ");
-            System.out.println("4. In ra toàn bộ dụng cụ ");
-            System.out.println("5. Thay đổi người quản lí dụng cụ ( những dụng cụ của nhân viên đã nghỉ việc)");
+            System.out.println("4. In ra toàn bộ dụng cụ ( có người quản lí ");
+            System.out.println("5. In ra toàn bộ công cụ ");
+            System.out.println("6. Thay đổi người quản lí dụng cụ ( những dụng cụ của nhân viên đã nghỉ việc)");
             System.out.println("0. Exit");
             System.out.println("nhập lựa chọn");
             Scanner scanner = new Scanner(System.in);
@@ -37,14 +43,14 @@ public class ShowFunctionTools {
                     System.out.println("nhập vào số lượng dụng cụ");
                     int numberTools = Integer.parseInt(scanner.nextLine());
                     int IDManagement = (int) (Math.random()*countMember+1);
-                    countIDTool++;
+                    int idTools = ++ countIDTool;
                     for (Employee e:member) {
                         if (e.getId() == IDManagement){
                             System.out.println("người quản lí dụng cụ: " + e.getName());
                         }
                     }
 //                  String nameTool, int IDManagement, int numberTool
-                    Tool tool = new Tool(nameTool,IDManagement,numberTools);
+                    Tool tool = new Tool(nameTool,IDManagement,numberTools,idTools);
                     System.out.println(tool.toString());
                     tools.add(tool);
                     break;
@@ -104,6 +110,11 @@ public class ShowFunctionTools {
                     break;
                 case 5:
                     for (Tool t: tools) {
+                        System.out.println(t);
+                    }
+                    break;
+                case 6:
+                    for (Tool t: tools) {
                         boolean check1 = false;
                         for (Employee e: member) {
                             if (t.getIDManagement() == e.getId()){
@@ -111,10 +122,15 @@ public class ShowFunctionTools {
                             }
                         }
                         if (!check1){
-                            t.setIDManagement((int) (Math.random()*countIDTool));
+                            int indexArray = (int) (Math.random()*member.size());
+                            t.setIDManagement(member.get(indexArray).getId());
+                            System.out.println("dụng cụ đã được đổi sang người quản lí: "+ member.get(indexArray).getName());
                             System.out.println(t);
+                            return;
                         }
                     }
+                    System.out.println("không có công cụ nào chưa được quản lí");
+                    break;
                 case 0:
                     return;
             }

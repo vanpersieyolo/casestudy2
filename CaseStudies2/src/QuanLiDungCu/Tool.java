@@ -1,6 +1,8 @@
 package QuanLiDungCu;
 
-public class Tool {
+import java.io.Serializable;
+
+public class Tool implements Serializable {
     String nameTool;
     int IDManagement;
     int numberTool;
@@ -17,10 +19,11 @@ public class Tool {
     public Tool() {
     }
 
-    public Tool(String nameTool, int IDManagement, int numberTool) {
+    public Tool(String nameTool, int IDManagement, int numberTool,int idTool) {
         this.nameTool = nameTool;
         this.IDManagement = IDManagement;
         this.numberTool = numberTool;
+        this.idTool = idTool;
     }
 
     public String getNameTool() {
