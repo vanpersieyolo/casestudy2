@@ -5,6 +5,7 @@ import QuanLiNhanVien.Employee;
 import javax.naming.PartialResultException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RecordandWrite {
     public static void write(String source, ArrayList<Employee> arr) {

@@ -16,7 +16,7 @@ public class  Showlist {
         System.out.println("chọn thư mục quản lí: ");
         System.out.println("1. Quản lí nhân viên trong xưởng");
         System.out.println("2. Quản lí dụng cụ trong xưởng");
-        System.out.println("0. Đăng xuất ");
+        System.out.println("0. Save & logout ");
     }
     public static boolean choiceList(ArrayList<Employee> member,ArrayList<Tool> tools){
         int choice;

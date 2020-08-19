@@ -27,7 +27,7 @@ public class ShowFunctionTools {
             System.out.println("1. Thêm 1 dụng cụ mới ");
             System.out.println("2. Kiểm tra số dụng cụ qua ID người quản lí dụng cụ ");
             System.out.println("3. Xóa 1 dụng cụ ");
-            System.out.println("4. In ra toàn bộ dụng cụ ( có người quản lí ");
+            System.out.println("4. In ra toàn bộ dụng cụ ( có người quản lí) ");
             System.out.println("5. In ra toàn bộ công cụ ");
             System.out.println("6. Thay đổi người quản lí dụng cụ ( những dụng cụ của nhân viên đã nghỉ việc)");
             System.out.println("0. Exit");

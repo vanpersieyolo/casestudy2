@@ -54,7 +54,7 @@ public class Tool implements Serializable {
     public String toString() {
         return "Tool{" +
                 "Tên dụng cụ: '" + nameTool + '\'' +
-                ", Tên người quản lí dụng cụ: " + IDManagement +
+                ", ID người quản lí dụng cụ: " + IDManagement +
                 ", Số lượng dụng cụ: " + numberTool +
                 ", Id dụng cụ =" + idTool +
                 '}';
