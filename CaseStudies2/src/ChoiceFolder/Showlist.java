@@ -19,20 +19,23 @@ public class  Showlist {
         System.out.println("0. Save & logout ");
     }
     public static boolean choiceList(ArrayList<Employee> member,ArrayList<Tool> tools){
-        int choice;
+
         Scanner scanner = new Scanner(System.in);
-        choice = Integer.parseInt(scanner.nextLine());
+        String choice = scanner.nextLine();
 
         switch (choice){
-            case 1:
+            case "1":
                 ShowfunctionEmployee showfunctionEmployee = new ShowfunctionEmployee(member);
                 showfunctionEmployee.list();
                 break;
-            case 2:
+            case "2":
                 ShowFunctionTools showFunctionTools = new ShowFunctionTools();
                 showFunctionTools.listTools(member,tools);
                 break;
-            case 0:
+            default:
+                System.out.println("nhập lại đê bạn êii");
+                break;
+            case "0":
                 System.out.println("đã đăng xuất");
                 RecordandWrite.write("case2.txt",member);
                 RecordAndWriteTools.record("case2Tools",tools);

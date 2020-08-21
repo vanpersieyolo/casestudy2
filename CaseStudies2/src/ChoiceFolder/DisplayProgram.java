@@ -33,7 +33,6 @@ public class DisplayProgram {
                 Showlist.showlist();
                 check = Showlist.choiceList(member,tools);
             } while (check);
-
         }
     }
 }

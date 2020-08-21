@@ -34,27 +34,40 @@ public class ShowFunctionTools {
             System.out.println("nhập lựa chọn");
             Scanner scanner = new Scanner(System.in);
 
-            int choiceT = Integer.parseInt(scanner.nextLine());
+            String choiceT = scanner.nextLine();
 
             switch (choiceT){
-                case 1:
+                case "1":
                     System.out.println("1. Nhập vào tên dụng cụ");
-                    String nameTool = scanner.nextLine();
-                    System.out.println("nhập vào số lượng dụng cụ");
-                    int numberTools = Integer.parseInt(scanner.nextLine());
-                    int IDManagement = (int) (Math.random()*countMember+1);
-                    int idTools = ++ countIDTool;
-                    for (Employee e:member) {
-                        if (e.getId() == IDManagement){
-                            System.out.println("người quản lí dụng cụ: " + e.getName());
+                    String nameTool1 = scanner.nextLine();
+                    boolean check = false;
+                    for (Tool a: tools) {
+                        if (a.getNameTool().equals(nameTool1)){
+                            System.out.println("Dụng cụ đã có, Nhập thêm số lượng cần nhập thêm ");
+                            int addNumberTool = Integer.parseInt(scanner.nextLine());
+                            a.numberTool += addNumberTool;
+                            System.out.println(a);
+                            check = true;
+                            break;
+                        }
+                    }
+                    if (!check) {
+                        System.out.println("nhập vào số lượng dụng cụ");
+                        int numberTools = Integer.parseInt(scanner.nextLine());
+                        int IDManagement = (int) (Math.random() * countMember + 1);
+                        int idTools = ++countIDTool;
+                        for (Employee e : member) {
+                            if (e.getId() == IDManagement) {
+                                System.out.println("người quản lí dụng cụ: " + e.getName());
+                            }
+                            Tool tool = new Tool(nameTool1, IDManagement, numberTools, idTools);
+                            System.out.println(tool.toString());
+                            tools.add(tool);
                         }
                     }
 //                  String nameTool, int IDManagement, int numberTool
-                    Tool tool = new Tool(nameTool,IDManagement,numberTools,idTools);
-                    System.out.println(tool.toString());
-                    tools.add(tool);
                     break;
-                case 2:
+                case "2":
                     System.out.println("nhập vào ID người quản lí dụng cụ: ");
                     int idMember = Integer.parseInt(scanner.nextLine());
                     for (Employee e: member) {
@@ -70,7 +83,7 @@ public class ShowFunctionTools {
                     }
                     System.out.println("hiện nhân viên không quản lí dụng cụ nào");
                     break;
-                case 3:
+                case "3":
                     System.out.println("nhập vào id dụng cụ cần xóa ");
                     int idToolRemove = Integer.parseInt(scanner.nextLine());
                     for (Tool t: tools) {
@@ -79,7 +92,7 @@ public class ShowFunctionTools {
                         }
                     }
                     break;
-                case 4:
+                case "4":
                         for (Employee e: member) {
                             int countTools = 0;
                             for (Tool t:tools ) {
@@ -97,23 +110,23 @@ public class ShowFunctionTools {
                             }
                         }
                     for (Tool t: tools) {
-                        boolean check = false ;
+                        boolean check1 = false ;
                         for (Employee a: member) {
                             if (t.getIDManagement() == a.getId()){
-                                check = true;
+                                check1 = true;
                             }
                         }
-                        if (!check){
+                        if (!check1){
                             System.out.println("dụng cụ chưa đc quản lí "+t);
                         }
                     }
                     break;
-                case 5:
+                case "5":
                     for (Tool t: tools) {
                         System.out.println(t);
                     }
                     break;
-                case 6:
+                case "6":
                     for (Tool t: tools) {
                         boolean check1 = false;
                         for (Employee e: member) {
@@ -131,7 +144,10 @@ public class ShowFunctionTools {
                     }
                     System.out.println("không có công cụ nào chưa được quản lí");
                     break;
-                case 0:
+                default:
+                    System.out.println("nhập lại cho đúng đi");
+                    break;
+                case "0":
                     return;
             }
         }while (true);

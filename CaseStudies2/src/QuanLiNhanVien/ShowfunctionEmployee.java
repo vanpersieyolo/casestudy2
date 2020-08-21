@@ -30,9 +30,9 @@ public class ShowfunctionEmployee {
             System.out.println("0. Exit ");
             System.out.println("nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
-            int choiceE = Integer.parseInt(scanner.nextLine());
+            String choiceE = scanner.nextLine();
             switch (choiceE) {
-                case 1:
+                case "1":
                     System.out.println("nhập vào tên nhân viên:");
                     String name = scanner.nextLine();
                     System.out.println("nhập vào email:");
@@ -43,7 +43,7 @@ public class ShowfunctionEmployee {
                     Employee employee = new Employee(name, age, email, id);
                     member.add(employee);
                     break;
-                case 2:
+                case "2":
                     System.out.println("nhập vào ID của nhân viên cần remove: ");
                     int idRemove = Integer.parseInt(scanner.next());
                     for (Employee e: member) {
@@ -55,7 +55,7 @@ public class ShowfunctionEmployee {
                     }
                     System.out.println("không có nhân viên có ID vừa nhập !");
                     break;
-                case 3:
+                case "3":
                     System.out.println("nhập vào ID nhân viên cần tìm: ");
                     int idFind = Integer.parseInt(scanner.next());
                     for (Employee e: member) {
@@ -67,12 +67,12 @@ public class ShowfunctionEmployee {
                     }
                     System.out.println("không có nhân viên có ID vừa nhập !");
                     break;
-                case 4:
+                case "4":
                     for (Employee e : member) {
                         System.out.println(e.toString());
                     }
                     break;
-                case 5:
+                case "5":
                     System.out.println("nhập vào ID của nhân viên cần sửa thông tin: ");
                     int idUpdate = Integer.parseInt(scanner.next());
                     for (Employee e : member) {
@@ -92,7 +92,10 @@ public class ShowfunctionEmployee {
                     }
                     System.out.println("ID nhập vào không trùng khớp");
                     break;
-                case 0:
+                default:
+                    System.out.println("nhập lại cho đúng đê");
+                    break;
+                case "0":
                     return;
             }
         }while (true);
