@@ -15,7 +15,7 @@ public class DisplayProgram {
         Login login = new Login();
         login.showLogin();
         int count = 3;
-            member = RecordandWrite.read("case2.txt");
+            member = RecordandWrite.read("case22.txt");
             tools = RecordAndWriteTools.read("case2Tools");
         while (count > 0 ){
             if (login.checkLogin() == false){

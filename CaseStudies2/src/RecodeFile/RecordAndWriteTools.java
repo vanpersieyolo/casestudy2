@@ -13,9 +13,9 @@ public class RecordAndWriteTools {
             objectOutputStream.writeObject(arr);
             objectOutputStream.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(" ko thầy file để ghi cơ");;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("lỗi ghi file r nhé");
         }
     }
     public static ArrayList<Tool> read(String source){
@@ -26,9 +26,9 @@ public class RecordAndWriteTools {
             o.close();
             return arrayList;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("ko thấy file nào để ghi");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("chưa có dụng cụ nào thỳ phải. thêm ngay nhé");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
