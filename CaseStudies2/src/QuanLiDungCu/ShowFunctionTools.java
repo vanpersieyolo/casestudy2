@@ -21,8 +21,6 @@ public class ShowFunctionTools {
                 countIDTool = t.getIdTool();
             }
         }
-
-        System.out.println(countIDTool);
         do {
             System.out.println("1. Thêm 1 dụng cụ mới ");
             System.out.println("2. Kiểm tra số dụng cụ qua ID người quản lí dụng cụ ");
@@ -54,16 +52,16 @@ public class ShowFunctionTools {
                     if (!check) {
                         System.out.println("nhập vào số lượng dụng cụ");
                         int numberTools = Integer.parseInt(scanner.nextLine());
-                        int IDManagement = (int) (Math.random() * countMember + 1);
+                        int IDManagement = (int) ((Math.random()*countMember)+1);
                         int idTools = ++countIDTool;
                         for (Employee e : member) {
                             if (e.getId() == IDManagement) {
                                 System.out.println("người quản lí dụng cụ: " + e.getName());
                             }
-                            Tool tool = new Tool(nameTool1, IDManagement, numberTools, idTools);
-                            System.out.println(tool.toString());
-                            tools.add(tool);
                         }
+                        Tool tool = new Tool(nameTool1, IDManagement, numberTools, idTools);
+                        System.out.println(tool.toString());
+                        tools.add(tool);
                     }
 //                  String nameTool, int IDManagement, int numberTool
                     break;

@@ -15,9 +15,9 @@ public class RecordandWrite {
             o.writeObject(arr);
             o.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("không tìm thấy file lưu rồi");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("record lỗi rồi ấy ơi :))");
         }
     }
 
@@ -29,9 +29,9 @@ public class RecordandWrite {
             o.close();
             return arr;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("chưa có dữ liệu rồi. add ngay 1 thành viên thôi");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("chưa có dữ liệu rồi. add ngay 1 thành viên thôi");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
