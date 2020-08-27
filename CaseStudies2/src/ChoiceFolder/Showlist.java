@@ -37,8 +37,8 @@ public class  Showlist {
                 break;
             case "0":
                 System.out.println("đã đăng xuất");
-                RecordandWrite.write("case2.txt",member);
-                RecordAndWriteTools.record("case2Tools",tools);
+                RecordandWrite.write("case22.txt",member);
+                RecordAndWriteTools.record("case22Tools.txt",tools);
                 return false;
         }
         return true;

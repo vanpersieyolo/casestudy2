@@ -16,7 +16,13 @@ public class DisplayProgram {
         login.showLogin();
         int count = 3;
             member = RecordandWrite.read("case22.txt");
-            tools = RecordAndWriteTools.read("case2Tools");
+            tools = RecordAndWriteTools.read("case22Tools.txt");
+            if(member == null){
+                member = new ArrayList<>();
+            }
+            if (tools == null){
+                tools = new ArrayList<>();
+            }
         while (count > 0 ){
             if (login.checkLogin() == false){
                 System.out.println("bạn đã nhập sai. bạn còn "+count+" lần đăng nhập");
