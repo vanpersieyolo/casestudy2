@@ -88,7 +88,9 @@ public class ShowFunctionTools {
                         if (idToolRemove == t.getIdTool()){
                             tools.remove(t);
                         }
+                        return;
                     }
+                    System.out.println("không có ID dụng cụ cần xóa");
                     break;
                 case "4":
                         for (Employee e: member) {
