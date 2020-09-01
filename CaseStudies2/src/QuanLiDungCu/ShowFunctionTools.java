@@ -1,11 +1,6 @@
 package QuanLiDungCu;
-
 import QuanLiNhanVien.Employee;
-import com.sun.tools.javac.Main;
-
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class ShowFunctionTools {
